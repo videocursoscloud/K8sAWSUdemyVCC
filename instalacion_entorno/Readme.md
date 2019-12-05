@@ -1,4 +1,5 @@
 Comandos para comprobar las extensiones de virtualizacion:
+
 cat /proc/cpuinfo| egrep "vmx|svm"
 
 Enlaces de instalacion:
