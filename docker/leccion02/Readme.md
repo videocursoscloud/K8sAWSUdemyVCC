@@ -27,5 +27,9 @@ docker build -t helloworld:1.0
 docker tag helloworld:1.0 helloworld:latest
 ```
 
+### Inspeccionar los metadatos de la imagen 
 
+```
+docker inspect helloworld:latest
+```
 
