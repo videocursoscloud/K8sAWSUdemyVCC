@@ -1,0 +1,10 @@
+
+<table border="1">
+<tr>
+	<td>ID</td>
+	<td>Name</td>
+</tr>
+{% for row in data %}
+<tr><td>{{ row.0 }}</td><td>{{ row.1 }}</td></tr>
+{% endfor %}
+</table>

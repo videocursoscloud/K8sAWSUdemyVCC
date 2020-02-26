@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    build: app/
+    ports:
+      - "5000:5000"
+    env_file:
+      - db_variables.env
+      - web_variables.env
+  db:
+    image: "mariadb:latest"
+    env_file:
+      - db_variables.env
+    volumes: 
+      - ./dump/:/docker-entrypoint-initdb.d:ro
+
