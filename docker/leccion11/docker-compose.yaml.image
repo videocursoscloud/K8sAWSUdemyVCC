@@ -1,0 +1,7 @@
+version: '3'
+services:
+  web:
+    image: helloworld:latest
+    ports:
+    - "8080:80"
+
