@@ -1,0 +1,10 @@
+kubectl apply -f pod1.yaml
+kubectl get all
+kubectl get pods
+kubectl get pods -o wide
+kubectl describe pods
+kubectl describe pod nginx
+kubectl delete pod nginx
+
+
+

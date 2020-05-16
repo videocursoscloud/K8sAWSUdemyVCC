@@ -1,0 +1,8 @@
+kubectl apply -f pod-replicationcontroller.yaml 
+kubectl get all
+kubectl delete pod nginx-testing-xxxxx
+kubectl get pods,replicationcontroller
+kubectl get pods,rc
+kubectl describe rc
+kubectl describe rc nginx
+kubectl delete -f pod-replicationcontroller.yaml 

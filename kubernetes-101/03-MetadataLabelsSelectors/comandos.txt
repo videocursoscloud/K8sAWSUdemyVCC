@@ -1,0 +1,13 @@
+kubectl apply -f pod.yaml -f metadata.yaml 
+kubectl get pod
+kubectl get pod --show-labels
+kubectl get pod --show-labels --selector environment
+kubectl get pod --show-labels --selector environment=testing
+kubectl get pod --show-labels --selector environment=production
+kubectl get pod --show-labels --selector environment
+kubectl get pod --show-labels --selector proyecto
+kubectl get pod --show-labels --selector project
+kubectl get pod --show-labels --selector project=nginx
+kubectl get pod --show-labels --selector nginx
+kubectl get pod --show-labels --selector testing
+kubectl delete -f metadata.yaml -f pod.yaml 
