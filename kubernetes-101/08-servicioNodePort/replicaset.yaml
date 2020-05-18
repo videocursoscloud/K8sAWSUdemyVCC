@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-testing-nodeport
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+      environment: testing-nodeport
+  template:
+    metadata:
+      labels:
+        app: nginx
+        environment: testing-nodeport
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
