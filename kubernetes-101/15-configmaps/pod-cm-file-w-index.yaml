@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-cm-file-w-index
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      volumeMounts:
+      - name: config-volume
+        mountPath: /etc/nginx/conf.d/
+      volumeMounts:
+      - name: index
+        mountPath: /usr/share/nginx/html
+  volumes:
+    - name: config-volume
+      configMap:
+        name: nginx-config-dir
+    - name: index
+      configMap:
+        name: nginx-index
