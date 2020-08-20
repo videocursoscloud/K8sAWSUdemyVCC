@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-testing-hpa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+      environment: testing-hpa
+  template:
+    metadata:
+      labels:
+        app: nginx
+        environment: testing-hpa
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 200m
+          limits:
+            cpu: 500m

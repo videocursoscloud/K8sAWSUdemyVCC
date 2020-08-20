@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nginx-testing
+spec:
+  replicas: 2
+  selector:
+    project: nginx
+    environment: testing
+  template:
+    metadata:
+      name: nginx
+      labels:
+        project: nginx
+        environment: testing
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80

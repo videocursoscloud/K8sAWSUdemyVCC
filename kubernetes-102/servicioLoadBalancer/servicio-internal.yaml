@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: servicio-loadbalancer-int
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx
+    environment: testing-loadbalancer-int
+  ports:
+    - protocol: TCP
+      port: 80

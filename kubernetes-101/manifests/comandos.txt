@@ -1,0 +1,9 @@
+Con manifest:
+
+kubectl apply -f ejemplo.yaml
+kubectl get all
+kubectl delete -f ejemplo.yaml
+
+Sin manifest:
+
+kubectl run nginx --image=nginx:1.7.9 --port 80 --replicas=2 nginx-deployment
