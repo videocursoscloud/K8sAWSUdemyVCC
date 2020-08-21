@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-requests
+  name: nginx-limits-no-restart
 spec:
+  restartPolicy: Never
   containers:
   - name: webserver
     image: nginx:latest
     resources:
-      requests:
-        memory: "256Mi"
-        cpu: "250m"
+      limits:
+        memory: "64Mi"
+        cpu: "500m"
