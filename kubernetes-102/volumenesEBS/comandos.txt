@@ -1,0 +1,4 @@
+aws ec2 create-volume --availability-zone=eu-west-1a --size=10 --volume-type=gp2
+
+
+aws ec2 delete-volume --volume-id vol-xxxxx

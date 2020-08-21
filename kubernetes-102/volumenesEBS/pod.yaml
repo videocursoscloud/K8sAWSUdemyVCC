@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-ebs
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: topology.kubernetes.io/zone
+            operator: In
+            values:
+            - eu-west-1a
+  containers:
+  - image: nginx:latest
+    name: nginx
+    volumeMounts:
+    - mountPath: /mnt/ebs
+      name: ebsvolume
+  volumes:
+  - name: ebsvolume
+    awsElasticBlockStore:
+      volumeID: vol-xxxx
+      fsType: ext4
