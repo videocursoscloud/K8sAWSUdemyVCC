@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-w-annotations
+  annotations:
+    nginx-default-page: index.php
+    nginx-default-root-directory: /var/www/html
+spec:
+  containers:
+  - image: nginx:latest
+    name: nginx
