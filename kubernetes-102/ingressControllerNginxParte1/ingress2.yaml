@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-service2
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: myservice2.videocursoscloud.co.uk
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: servicio2
+          servicePort: 80
