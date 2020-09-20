@@ -11,7 +11,7 @@ spec:
       - myservice2.videocursoscloud.co.uk
       # This assumes tls-secret exists and the SSL
       # certificate contains a CN for foo.bar.com
-      secretName: tls-secret
+      secretName: tls-secret-service2
   rules:
     - host: myservice2.videocursoscloud.co.uk
       http:

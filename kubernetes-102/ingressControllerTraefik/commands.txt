@@ -1,0 +1,26 @@
+# desplegamos rbac
+
+kubectl apply -f https://raw.githubusercontent.com/containous/traefik/v1.7/examples/k8s/traefik-rbac.yaml
+
+# Desplegamos como deployment
+
+kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v1.7/examples/k8s/traefik-deployment.yaml
+
+# o como daemon set 
+
+kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v1.7/examples/k8s/traefik-ds.yaml
+
+# y vemos el estado de los diferentes objetos del ingress controller
+kubectl get all -A -l k8s-app=traefik-ingress-lb
+
+
+# tls
+
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout /tmp/tls.key -out /tmp/tls.crt -subj "/CN=myservice1.videocursoscloud.co.uk/O=nginxsvc"
+kubectl create secret tls tls-secret-service1 --key /tmp/tls.key --cert /tmp/tls.crt
+
+# basic auth
+
+htpasswd -c ./auth myusername
+
+kubectl create secret generic mysecret --from-file auth

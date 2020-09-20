@@ -1,3 +1,16 @@
-openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout /tmp/tls.key -out /tmp/tls.crt -subj "/CN=nginxsvc/O=nginxsvc"
-kubectl create secret tls tls-secret --key /tmp/tls.key --cert /tmp/tls.crt
+generic
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.34.1/deploy/static/provider/cloud/deploy.yaml
+
+
+with nlb
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.34.1/deploy/static/provider/aws/deploy.yaml
+
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout /tmp/tls.key -out /tmp/tls.crt -subj "/CN=myservice1.videocursoscloud.co.uk/O=nginxsvc"
+kubectl create secret tls tls-secret-service1 --key /tmp/tls.key --cert /tmp/tls.crt
+
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout /tmp/tls.key -out /tmp/tls.crt -subj "/CN=myservice2.videocursoscloud.co.uk/O=nginxsvc"
+kubectl create secret tls tls-secret-service2 --key /tmp/tls.key --cert /tmp/tls.crt
+
+
+
 
