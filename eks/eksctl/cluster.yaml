@@ -6,9 +6,9 @@ metadata:
   region: eu-west-1
 managedNodeGroups:
   - name: nodos1
-    minSize: 1
-    maxSize: 1
-    desiredCapacity: 1
+    minSize: 2
+    maxSize: 4
+    desiredCapacity: 2
     volumeSize: 20
     labels: {project: web}
     tags:
