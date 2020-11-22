@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-service-auth
+  annotations:
+    traefik.ingress.kubernetes.io/auth-type: "basic"
+    traefik.ingress.kubernetes.io/auth-secret: "mysecret"
+spec:
+  rules:
+  - host: auth.videocursoscloud.co.uk
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: servicio1
+          servicePort: 80

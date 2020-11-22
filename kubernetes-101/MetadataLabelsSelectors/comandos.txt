@@ -1,5 +1,6 @@
 kubectl apply -f pod.yaml -f metadata.yaml 
-kubectl get pod
+kubectl get pods
+kubectl get pods -w 
 kubectl get pod --show-labels
 kubectl get pod --show-labels --selector environment
 kubectl get pod --show-labels --selector environment=testing

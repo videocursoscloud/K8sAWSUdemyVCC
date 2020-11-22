@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-limits-restart
+spec:
+  containers:
+  - name: webserver
+    image: nginx:latest
+    resources:
+      limits:
+        memory: "64Mi"
+        cpu: "500m"

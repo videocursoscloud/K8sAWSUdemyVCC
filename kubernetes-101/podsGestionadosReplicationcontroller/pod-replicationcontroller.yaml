@@ -3,7 +3,11 @@ kind: ReplicationController
 metadata:
   name: nginx-testing
 spec:
+<<<<<<< HEAD:kubernetes-101/podsGestionadosReplicationcontroller/pod-replicationcontroller.yaml
   replicas: 3
+=======
+  replicas: 2
+>>>>>>> b2ac7917204d583087b763c494c204eddbab4f8b:kubernetes-101/podsGestionadosReplicationcontroller/pod-replicationcontroller.yaml
   selector:
     project: nginx
     environment: testing
