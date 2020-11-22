@@ -3,7 +3,7 @@ kind: ReplicationController
 metadata:
   name: nginx-testing
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     project: nginx
     environment: testing

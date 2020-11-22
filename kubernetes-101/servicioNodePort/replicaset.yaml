@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: nginx-testing-clusterip
+  name: nginx-testing-nodeport
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
-      environment: testing-clusterip
+      environment: testing-nodeport
   template:
     metadata:
       labels:
         app: nginx
-        environment: testing-clusterip
+        environment: testing-nodeport
     spec:
       containers:
       - name: nginx
