@@ -1,3 +1,0 @@
-kubectl apply -f replicaset.yaml 
-kubectl get all
-kubectl delete -f replicaset.yaml 
