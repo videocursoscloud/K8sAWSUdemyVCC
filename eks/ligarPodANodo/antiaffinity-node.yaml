@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web-antiaffinity-node
+  namespace: pod-affinity
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: project
+            operator: NotIn
+            values:
+            - web
+  containers:
+  - name: web
+    image: nginx:latest
