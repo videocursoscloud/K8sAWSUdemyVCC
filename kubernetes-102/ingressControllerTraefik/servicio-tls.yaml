@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
-  name: servicio1
+  name: servicio-tls
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
@@ -11,23 +11,26 @@ spec:
     metadata:
       labels:
         app: nginx
-        servicio: servicio1
+        servicio: servicio-tls
     spec:
       containers:
       - name: nginx
         image: nginx
         ports:
-        - containerPort: 80
+        - name: http 
+          containerPort: 80
+        - name: https 
+          containerPort: 443
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: servicio1
+  name: servicio-tls
 spec:
   type: ClusterIP
   selector:
     app: nginx
-    servicio: servicio1
+    servicio: servicio-tls
   ports:
     - protocol: TCP
       port: 80
