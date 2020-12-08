@@ -1,0 +1,7 @@
+Donde xxxx es el id de vuestra cuenta y region es vuesta region  (por ejemplo eu-west-1).
+Es preferible copiar los comandos del panel "push commands" del repositorio como os muestro en el video.
+
+docker tag helloworld:latest xxxx.dkr.ecr.region.amazonaws.com/helloworld:latest
+docker build -t helloworld .
+docker tag helloworld:latest xxxx.dkr.ecr.region.amazonaws.com/helloworld:latest
+docker push xxxx.dkr.ecr.region.amazonaws.com/helloworld:latest

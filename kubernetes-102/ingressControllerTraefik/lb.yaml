@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik-ingress-service-lb
+  namespace: kube-system
+  labels:
+    k8s-app: traefik-ingress-lb    
+spec:
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  - name: https
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  selector:
+    k8s-app: traefik-ingress-lb
+  type: LoadBalancer
