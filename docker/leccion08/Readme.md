@@ -18,4 +18,7 @@ docker push usuarioremoto/imagenremota:etiqueta
 docker pull usuarioremoto/imagen:etiqueta
 ```
 
- 
+## borrar todas las imagenes de nuestra caché
+```
+docker rmi $(docker images -a -q)
+```
